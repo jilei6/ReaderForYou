@@ -17,7 +17,7 @@
 #import "RFYRecentDocumentList.h"
 #import "RFYDocumentViewController.h"
 #import "UIColor+GreatReaderAdditions.h"
-
+#import "CoreJPush.h"
 NSString * const DocumentListViewControllerCellIdentifier = @"DocumentListViewControllerCellIdentifier";
 NSString * const DocumentListViewControllerSeguePDFDocument = @"DocumentListViewControllerSeguePDFDocument";
 
@@ -32,6 +32,7 @@ NSString * const DocumentListViewControllerSeguePDFDocument = @"DocumentListView
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
 
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 

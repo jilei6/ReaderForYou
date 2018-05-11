@@ -21,7 +21,7 @@
 #import "RFYRecentDocumentList.h"
 #import "RecentDocumentListViewModel.h"
 #import "RootFolder.h"
-
+#import "CoreJPush.h"
 static NSString * const RestorationDocumentListTabBar = @"RestorationDocumentListTabBar";
 static NSString * const RestorationDocumentListRecentNavi = @"RestorationDocumentListRecentNavi";
 static NSString * const RestorationDocumentListRecent = @"RestorationDocumentListRecent";
@@ -44,6 +44,16 @@ static NSString * const LastAppVersion = @"LastAppVersion";
 
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [CoreJPush registerJPush:launchOptions];
+    [CoreJPush setTags:[NSSet setWithArray:@[@"movie"]] alias:@"12343242" resBlock:^(BOOL res, NSSet *tags, NSString *alias) {
+
+        if(res){
+//            NSLog(@"设置成功：%@,%@",@(res),tags,alias);
+        }else{
+//            NSLog(@"设置失败");
+        }
+    }];
+
     if (CrashlyticsEnabled()) {
         [Crashlytics startWithAPIKey:GetCrashlyticsAPIKey()];
     }
